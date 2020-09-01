@@ -10,6 +10,7 @@ import Track from "./screens/track";
 import Cuisine from "./screens/cuisine";
 import Vote from "./screens/vote";
 import End from "./screens/end";
+import Winner from "./screens/winner";
 
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
   <Route exact path="/cuisine" component={Cuisine} />
   <Route exact path="/vote" component={Vote} />
   <Route exact path="/end" component={End} />
+  <Route exact path="/winner" component={Winner} />
 </div>
 </Router>,
 document.getElementById("root")

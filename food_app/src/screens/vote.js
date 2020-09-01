@@ -34,12 +34,12 @@ class Vote extends React.Component {
       <br></br>
       <div style={{fontFamily:'Roboto', fontSize:'2vh', textAlign:'center', marginTop:'3vh', color:'#949494'}}>You voted for</div>
      
-      <div style={{display:'inline-block',marginLeft:'30%',}}></div>
+      <div style={{display:'inline-block',marginLeft:'25%',}}></div>
       <div onClick={()=>this.setState({budget:'low'})} style={{borderRadius:15, display:'inline-block', boxShadow:' 1px 1px 3px 2px #949494' ,  backgroundColor:'white',  textAlign:'center', alignSelf:'center', margin:'auto',marginTop:'5%',marginRight:'10%',marginBottom:'5vh'}}>
-          <img src={i} width={320} height={220} style={{verticalAlign:'top', borderRadius:15}}></img><br></br>Indian</div>
+          <img src={c} width={320} height={220} style={{verticalAlign:'top', borderRadius:15}}></img><br></br>Chinese</div>
 
 
-          <Link to="/cuisine"><div style={{fontFamily:'Roboto', fontSize:'2vh', textAlign:'center', width:'100%', borderRadius:20, verticalAlign:'middle', textAlignLast:'center', }}>I changed my mind.</div></Link>
+          <Link to="/cuisine"><div style={{fontFamily:'Roboto', fontSize:'2vh', textAlign:'center', width:'100%', borderRadius:20, verticalAlign:'middle', textAlignLast:'center', }}>Wait, I changed my mind.</div></Link>
          
       </div>
       

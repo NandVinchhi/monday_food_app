@@ -13,13 +13,30 @@ class Track extends React.Component {
     this.state = {
       settings: {},
       name: "",
-      budget:'',
-      votes:"15",
+      duration:'',
+      votes:"0",
     };
   }
 
   componentDidMount() {
-    // TODO: set up event listeners
+   
+      fetch('https://lunchday.azurewebsites.net/api/trackPoll', {
+        method: 'POST',
+        body:{
+          "id" : 0,
+          }
+        }
+     )
+     .then((response) => response.json())
+     .then((responseJson) => {
+        console.log(responseJson);
+        this.setState({duration:responseJson.duration});
+     })
+     .catch((error) => {
+        console.error(error);
+     });
+    
+  
   }
 
   render() {
@@ -33,13 +50,13 @@ class Track extends React.Component {
       
      
       <div style={{fontFamily:'Roboto', fontSize:'3vh', textAlign:'center', marginTop:'1.5vh', marginBottom:'1.5vh', color:'#1F1F1F'}}>
-      <span style={{fontFamily:'Open Sans'}}>{this.state.votes}</span> votes</div>
+      <span style={{fontFamily:'Open Sans'}}>{this.state.votes}</span> vote(s)</div>
   
-      <div style={{fontFamily:'Roboto', fontSize:60, textAlign:'center', marginLeft:'40%'}}>
+      <div style={{fontFamily:'Roboto', fontSize:60, textAlign:'center', marginLeft:'35%'}}>
   <CountdownCircleTimer
       style={{fontFamily:'Roboto'}}
     isPlaying
-    duration={60}
+    duration={100}
     colors={[
       ['#07C773', 0.25],
       ['#FCCA08', 0.25],
@@ -56,7 +73,7 @@ class Track extends React.Component {
       Time remaining</div>
 
          
-        <Link to="/end"> <button style={{fontFamily:'Roboto', fontSize:'2vh', textAlign:'center', marginTop:'3vh', color:'#FFF', backgroundColor:'#1B1F3C',padding:'2% 3%', width:'20%', borderRadius:20, verticalAlign:'middle', textAlignLast:'center', marginLeft:'40%'}}>END POLL</button></Link> 
+        <Link to="/winner"> <button style={{fontFamily:'Roboto', fontSize:'2vh', textAlign:'center', marginTop:'3vh', color:'#FFF', backgroundColor:'#1B1F3C',padding:'2% 3%', width:'25%', borderRadius:20, verticalAlign:'middle', textAlignLast:'center', marginLeft:'37.5%'}}>END POLL</button></Link> 
          
       </div>
       
